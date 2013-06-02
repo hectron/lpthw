@@ -28,7 +28,7 @@ def randomize_lists():
   """
 
   shuffle(problems)
-  
+
 
 def is_number(s):
   """
@@ -66,7 +66,7 @@ def ask_questions(p = []):
   correct_answers = 0
   minimum_questions_asked = sqrt(len(p))
 
-  while len(p) > 1 or correct_answers < minimum_questions_asked):
+  while len(p) > 1 or correct_answers < minimum_questions_asked:
 	# grab two random numbers.
 	first_number = choice(p)
 	second_number = choice(p)
@@ -76,7 +76,7 @@ def ask_questions(p = []):
 
 	print "%s %s %s = ?" % (first_number, operation, second_number)
 	number_of_questions_asked += 1
-	
+
 	answer = 0
 
 	if operation == "+":
@@ -89,7 +89,7 @@ def ask_questions(p = []):
 	  answer = operator.div(first_number, second_number)
 	else:
 	  answer = operator.mod(first_number, second_number)
-	
+
 	player_answer = raw_input("> ")
 
 	while not is_number(player_answer):
@@ -98,14 +98,14 @@ def ask_questions(p = []):
 
 	if int(player_answer) == answer:
 	  correct_answers += 1
-	
+
 	p.remove(first_number)
 
 	# If there are two numbers which are equal in the list,
 	# only remove one of them
 	if first_number != second_number:
 	  p.remove(second_number)
-  
+
   return number_of_questions_asked
 
 def play_game():
@@ -115,7 +115,7 @@ def play_game():
 
   # initialize the timer
   start_time = time.time()
-  
+
   print_welcome()
   randomize_lists()
   estimated_time = ask_questions(problems) * 7 # Num of questions asked * 7 seconds
